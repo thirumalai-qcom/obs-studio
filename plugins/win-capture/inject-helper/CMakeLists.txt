@@ -22,6 +22,19 @@ if(OBS_PARENT_ARCHITECTURE STREQUAL CMAKE_VS_PLATFORM_NAME)
       COMMAND "${CMAKE_COMMAND}" --build ${CMAKE_SOURCE_DIR}/build_x86 --config $<CONFIG> -t inject-helper
       COMMENT "Build x86 inject-helper"
     )
+  elseif(CMAKE_VS_PLATFORM_NAME STREQUAL ARM64)
+    add_custom_command(
+      TARGET inject-helper
+      POST_BUILD
+      COMMAND "${CMAKE_COMMAND}" --build ${CMAKE_SOURCE_DIR}/build_x86 --config $<CONFIG> -t inject-helper
+      COMMENT "Build x86 inject-helper"
+    )
+    add_custom_command(
+      TARGET inject-helper
+      POST_BUILD
+      COMMAND "${CMAKE_COMMAND}" --build ${CMAKE_SOURCE_DIR}/build_x64 --config $<CONFIG> -t inject-helper
+      COMMENT "Build x64 inject-helper"
+    )
   endif()
 
   add_dependencies(win-capture inject-helper)
