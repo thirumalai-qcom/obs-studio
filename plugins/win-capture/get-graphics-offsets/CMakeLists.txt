@@ -27,6 +27,19 @@ if(OBS_PARENT_ARCHITECTURE STREQUAL CMAKE_VS_PLATFORM_NAME)
       COMMAND "${CMAKE_COMMAND}" --build ${CMAKE_SOURCE_DIR}/build_x86 --config $<CONFIG> -t get-graphics-offsets
       COMMENT "Build x86 get-graphics-offsets"
     )
+  elseif(CMAKE_VS_PLATFORM_NAME STREQUAL ARM64)
+    add_custom_command(
+      TARGET get-graphics-offsets
+      POST_BUILD
+      COMMAND "${CMAKE_COMMAND}" --build ${CMAKE_SOURCE_DIR}/build_x86 --config $<CONFIG> -t get-graphics-offsets
+      COMMENT "Build x86 get-graphics-offsets"
+    )
+    add_custom_command(
+      TARGET get-graphics-offsets
+      POST_BUILD
+      COMMAND "${CMAKE_COMMAND}" --build ${CMAKE_SOURCE_DIR}/build_x64 --config $<CONFIG> -t get-graphics-offsets
+      COMMENT "Build x64 get-graphics-offsets"
+    )
   endif()
 
   add_dependencies(win-capture get-graphics-offsets)
