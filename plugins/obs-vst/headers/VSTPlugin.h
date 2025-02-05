@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define BLOCK_SIZE 512
 
+#include "EditorWidget.h"
 #include <mutex>
 #include <atomic>
 #include <string>
@@ -28,7 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <obs-module.h>
 #include "aeffectx.h"
 #include "vst-plugin-callbacks.hpp"
-#include "EditorWidget.h"
 
 #ifdef __APPLE__
 #include <CoreFoundation/CoreFoundation.h>
