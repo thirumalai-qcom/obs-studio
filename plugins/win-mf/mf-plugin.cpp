@@ -3,15 +3,12 @@
 
 #include "mf-common.hpp"
 
-extern "C" extern void RegisterMFAACEncoder();
 extern void RegisterMFH264Encoders();
 extern void RegisterMFHEVCEncoders();
 
 extern "C" bool obs_module_load(void)
 {
 	MFStartup(MF_VERSION, MFSTARTUP_FULL);
-
-	RegisterMFAACEncoder();
 	RegisterMFH264Encoders();
 	RegisterMFHEVCEncoders();
 	return true;
