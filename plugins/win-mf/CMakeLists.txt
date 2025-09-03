@@ -11,12 +11,15 @@ target_sources(
     mf-h264-encoder.cpp
     mf-h264.cpp
     mf-hevc-encoder.cpp
+	  mf-av1.cpp
+	  mf-av1-encoder.cpp
     mf-hevc.cpp
     mf-plugin.cpp
     mf-common.hpp
     mf-encoder-descriptor.hpp
     mf-h264-encoder.hpp
     mf-hevc-encoder.hpp
+	  mf-av1-encoder.hpp
 )
 
 target_link_libraries(

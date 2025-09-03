@@ -13,18 +13,9 @@
 #include <util/windows/ComPtr.hpp>
 
 namespace MF {
-enum class EncoderType {
-	H264_SOFTWARE,
-	H264_QSV,
-	H264_NVENC,
-	H264_VCE,
-	H264_QCOM,
-	HEVC_QCOM,
-};
+enum class EncoderType { H264_SOFTWARE, H264_QSV, H264_NVENC, H264_VCE, H264_QCOM, HEVC_QCOM, AV1_QCOM };
 
-static const char *typeNames[] = {
-	"Software", "Quicksync", "NVENC", "AMD VCE", "QCOM_H264", "QCOM_HEVC",
-};
+static const char *typeNames[] = {"Software", "Quicksync", "NVENC", "AMD VCE", "QCOM_H264", "QCOM_HEVC", "QCOM_AV1"};
 
 class EncoderDescriptor {
 public:

@@ -5,12 +5,14 @@
 
 extern void RegisterMFH264Encoders();
 extern void RegisterMFHEVCEncoders();
+extern void RegisterMFAV1Encoders();
 
 extern "C" bool obs_module_load(void)
 {
 	MFStartup(MF_VERSION, MFSTARTUP_FULL);
 	RegisterMFH264Encoders();
 	RegisterMFHEVCEncoders();
+	RegisterMFAV1Encoders();
 	return true;
 }
 

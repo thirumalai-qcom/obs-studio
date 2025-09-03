@@ -96,6 +96,7 @@ constexpr EncoderEntry guidNameMap[] = {
 	 MF::EncoderType::H264_NVENC},
 	{"{7790EE16-08E3-426D-AADA-F96774308EA1}", "MF.H264.EncoderHWQCOM", "qcom_h264", MF::EncoderType::H264_QCOM},
 	{"{5AAFFE75-4EA4-424C-89E3-4A1E3F9A570D}", "MF.HEVC.EncoderHWQCOM", "qcom_hevc", MF::EncoderType::HEVC_QCOM},
+	{"{0705AB91-0EC9-4D51-90E2-00C3360F41C4}", "MF.AV1.EncoderHWQCOM", "qcom_av1", MF::EncoderType ::AV1_QCOM},
 };
 
 namespace {
@@ -156,6 +157,10 @@ std::vector<std::shared_ptr<MF::EncoderDescriptor>> MF::EncoderDescriptor::Enume
 
 	else if (std::strcmp(Codec, "hevc") == 0) {
 		info.guidSubtype = MFVideoFormat_HEVC;
+	}
+
+	else if (std::strcmp(Codec, "av1") == 0) {
+		info.guidSubtype = MFVideoFormat_AV1;
 	}
 
 	UINT32 unFlags = 0;
